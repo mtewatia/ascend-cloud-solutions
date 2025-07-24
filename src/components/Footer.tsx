@@ -16,16 +16,16 @@ export const Footer = () => {
       { name: 'Retail', href: '#' },
     ],
     company: [
-      { name: 'About Us', href: '#' },
-      { name: 'Case Studies', href: '#' },
+      { name: 'About Us', href: '/about' },
+      { name: 'Case Studies', href: '#case-studies' },
       { name: 'Blog', href: '#' },
-      { name: 'Careers', href: '#' },
+      { name: 'Careers', href: '/careers' },
     ],
     legal: [
-      { name: 'Privacy Policy', href: '#' },
-      { name: 'Terms of Service', href: '#' },
-      { name: 'Security', href: '#' },
-      { name: 'Compliance', href: '#' },
+      { name: 'Privacy Policy', href: '/privacy-policy' },
+      { name: 'Terms of Service', href: '/terms-of-service' },
+      { name: 'Security', href: '/security' },
+      { name: 'Compliance', href: '/compliance' },
     ],
   };
 
