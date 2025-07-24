@@ -1,5 +1,10 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Shield, Zap, TrendingUp } from 'lucide-react';
+import { 
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from '@/components/ui/carousel';
 
 export const Hero = () => {
   return (
@@ -61,14 +66,28 @@ export const Hero = () => {
 
             {/* Social Proof */}
             <div className="pt-8 border-t border-border/50">
-              <p className="text-sm text-muted-foreground mb-4">Trusted by industry leaders</p>
-              <div className="flex items-center space-x-8 opacity-60">
-                {/* Placeholder for client logos */}
-                <div className="h-8 w-24 bg-muted rounded"></div>
-                <div className="h-8 w-24 bg-muted rounded"></div>
-                <div className="h-8 w-24 bg-muted rounded"></div>
-                <div className="h-8 w-24 bg-muted rounded"></div>
-              </div>
+              <p className="text-sm text-muted-foreground mb-6">Trusted by Leading Organizations</p>
+              <Carousel
+                opts={{
+                  align: "start",
+                  loop: true,
+                }}
+                className="w-full max-w-4xl overflow-hidden"
+              >
+                <CarouselContent className="-ml-2">
+                  {Array.from({ length: 20 }, (_, i) => (
+                    <CarouselItem key={i} className="pl-2 basis-1/6 lg:basis-1/8">
+                      <div className="p-1">
+                        <div className="w-20 h-12 bg-muted/50 rounded border border-border/50 flex items-center justify-center hover:bg-muted transition-colors duration-200">
+                          <span className="text-xs text-muted-foreground font-medium">
+                            Logo {i + 1}
+                          </span>
+                        </div>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
             </div>
           </div>
 

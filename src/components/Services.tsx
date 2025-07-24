@@ -7,7 +7,13 @@ import {
   Boxes, 
   BarChart3, 
   ShieldCheck,
-  ArrowRight 
+  ArrowRight,
+  Heart,
+  CreditCard,
+  Tv,
+  Scale,
+  Factory,
+  ShoppingCart
 } from 'lucide-react';
 
 export const Services = () => {
@@ -153,22 +159,20 @@ export const Services = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {[
-              "Healthcare",
-              "Fintech",
-              "Media & Entertainment", 
-              "Legal Tech",
-              "Manufacturing",
-              "Retail & E-commerce"
+              { name: "Healthcare", icon: Heart },
+              { name: "Fintech", icon: CreditCard },
+              { name: "Media & Entertainment", icon: Tv }, 
+              { name: "Legal Tech", icon: Scale },
+              { name: "Manufacturing", icon: Factory },
+              { name: "Retail & E-commerce", icon: ShoppingCart }
             ].map((industry, index) => (
               <div 
                 key={index}
-                className="text-center p-4 rounded-lg bg-background/50 hover:bg-background transition-colors duration-300 animate-scale-in"
+                className="text-center p-6 rounded-lg bg-background/50 hover:bg-background transition-all duration-300 animate-scale-in hover:shadow-professional-md"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="w-12 h-12 bg-primary/10 rounded-lg mx-auto mb-3 flex items-center justify-center">
-                  <div className="w-6 h-6 bg-primary rounded-sm"></div>
-                </div>
-                <div className="text-sm font-medium text-foreground">{industry}</div>
+                <industry.icon className="w-12 h-12 text-primary mx-auto mb-4" />
+                <div className="text-sm font-medium text-foreground">{industry.name}</div>
               </div>
             ))}
           </div>
