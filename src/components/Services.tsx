@@ -112,12 +112,13 @@ export const Services = () => {
           {services.map((service, index) => (
             <Card 
               key={index}
-              className="group hover:shadow-professional-lg transition-all duration-300 border-border/50 hover:border-primary/20 animate-slide-up"
+              className="group card-hover border-border/50 hover:border-primary/30 animate-slide-up relative overflow-hidden bg-gradient-card"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <CardHeader>
-                <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <service.icon className="w-6 h-6 text-primary-foreground" />
+              <div className="absolute inset-0 bg-gradient-glow opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
+              <CardHeader className="relative">
+                <div className="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-glow">
+                  <service.icon className="w-7 h-7 text-primary-foreground" />
                 </div>
                 <CardTitle className="text-xl font-semibold text-foreground">
                   {service.title}
@@ -137,9 +138,9 @@ export const Services = () => {
                   ))}
                 </ul>
 
-                <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                <Button variant="outline" className="w-full group-hover:bg-gradient-primary group-hover:text-primary-foreground transition-all duration-500 hover:shadow-glow border-primary/20">
                   Learn More
-                  <ArrowRight className="w-4 h-4 ml-2" />
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </Button>
               </CardContent>
             </Card>
@@ -147,10 +148,12 @@ export const Services = () => {
         </div>
 
         {/* Industry Focus */}
-        <div className="mt-20 bg-gradient-card rounded-2xl p-8 lg:p-12">
-          <div className="text-center mb-12">
+        <div className="mt-20 bg-gradient-card rounded-3xl p-8 lg:p-12 shadow-professional-lg relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-glow opacity-30"></div>
+          <div className="text-center mb-12 relative">
             <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-4">
-              Industry Expertise
+              Industry{' '}
+              <span className="text-gradient">Expertise</span>
             </h3>
             <p className="text-lg text-muted-foreground">
               Deep domain knowledge across key verticals with compliance and regulatory understanding
@@ -168,11 +171,14 @@ export const Services = () => {
             ].map((industry, index) => (
               <div 
                 key={index}
-                className="text-center p-6 rounded-lg bg-background/50 hover:bg-background transition-all duration-300 animate-scale-in hover:shadow-professional-md"
+                className="text-center p-6 rounded-xl glass-effect hover:bg-white/20 transition-all duration-500 animate-scale-in card-hover group relative"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <industry.icon className="w-12 h-12 text-primary mx-auto mb-4" />
-                <div className="text-sm font-medium text-foreground">{industry.name}</div>
+                <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-glow">
+                  <industry.icon className="w-8 h-8 text-primary-foreground" />
+                </div>
+                <div className="text-sm font-medium text-foreground group-hover:text-gradient transition-all duration-300">{industry.name}</div>
+                <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-10 rounded-xl transition-opacity duration-500"></div>
               </div>
             ))}
           </div>
